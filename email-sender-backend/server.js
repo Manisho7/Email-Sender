@@ -3,6 +3,7 @@ const multer = require('multer');
 const nodemailer = require('nodemailer');
 const cors = require('cors');
 const path = require("path");
+require('dotenv').config();
 
 
 const app = express();
@@ -28,8 +29,8 @@ const upload = multer({ storage });
 const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-        user: 'manishyegurla95@gmail.com',  // Replace with your Gmail
-        pass: 'dhxtwnnrswohhrnd'      // Use an App Password
+        user: process.env.EMAIL_USER,  // Replace with your Gmail
+        pass: process.env.EMAIL_PASS      // Use an App Password
     }
 });
 
